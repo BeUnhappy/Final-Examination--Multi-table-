@@ -38,7 +38,11 @@ namespace LiangBiao
             string name = this.txt_name.Text;
             string img = this.scimg.ImageUrl;
             int department = Convert.ToInt32(this.ddl_bh.SelectedValue);
-            string sex = this.txt_sex.Text;
+            string sex = "男";
+            if (this.radbtn_woman.Checked)
+            {
+                sex = "女";
+            }
             int age = Convert.ToInt32(this.txt_age.Text);
 
             T_Employee emp = new T_Employee

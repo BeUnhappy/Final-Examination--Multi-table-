@@ -30,6 +30,12 @@
             margin-left: 105px;
         }
     </style>
+    <script type="text/javascript">
+        function tj() {
+            var tt = confirm("确认提交吗？")
+            return tt;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -46,7 +52,7 @@
                 <div style="margin-top: 5px;">
                     <asp:Image ID="scimg" runat="server" Width="240" Height="140" />
                 </div>
-                <div>
+                <div style="margin-top: 5px;">
                     <asp:Button ID="btn_sc" runat="server" Text="点击上传" OnClick="btn_sc_Click" />
                 </div>
             </div>
@@ -54,13 +60,15 @@
                 部门编号：<asp:DropDownList ID="ddl_bh" runat="server" Width="70" Height="25"></asp:DropDownList>
             </div>
             <div class="style">
-                员工性别：<asp:TextBox ID="txt_sex" runat="server"></asp:TextBox>
+                员工性别：
+                <asp:RadioButton ID="radbtn_man" runat="server" Text="男" GroupName="rad_sex" Checked="true" />
+                <asp:RadioButton ID="radbtn_woman" runat="server" Text="女" GroupName="rad_sex"/>
             </div>
             <div class="style">
                 员工年龄：<asp:TextBox ID="txt_age" runat="server"></asp:TextBox>
             </div>
             <div id="btn">
-                <asp:Button ID="btn_tj" runat="server" Text="点击提交" OnClick="btn_tj_Click" />
+                <asp:Button ID="btn_tj" runat="server" Text="点击提交" OnClick="btn_tj_Click" OnClientClick="return tj()" />
             </div>
             <div style="margin-left:100px;">
                 <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/List.aspx" Font-Size="Small">单表数据显示</asp:LinkButton>
